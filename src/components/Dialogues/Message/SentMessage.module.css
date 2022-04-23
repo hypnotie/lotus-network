@@ -1,0 +1,12 @@
+.message {
+  background-color: rgb(114, 104, 93);
+  padding: 8px 17px 8px 15px;
+  word-break: break-word;
+  color: #e9f5f5;
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-bottom: 5px;
+  max-width: 80%;
+  border-radius: 16px;
+  font-size: 0.9rem;
+}

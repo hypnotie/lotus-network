@@ -1,0 +1,87 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul,
+ol,
+li {
+  list-style: none;
+}
+img {
+  vertical-align: top;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: inherit;
+  font-size: inherit;
+}
+html,
+body {
+  height: 100%;
+  line-height: 1;
+}
+
+/* --------------------------        ZEROING END       -------------------------- */
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+body {
+  background-color: #2f2f2f;
+}
+.bg_header {
+  background-color: #79a9e0;
+  position: absolute;
+  width: 100%;
+  height: 65px;
+  box-shadow: 0 1px 5px #fff;
+}
+.app_wrapper {
+  width: 990px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-areas:
+    "h h"
+    "n c";
+  grid-template-rows: 65px 1fr;
+  grid-template-columns: 2.5fr 10fr;
+  grid-gap: 1rem 0.9rem;
+  position: relative;
+  height: 100vh;
+}
+.content {
+  grid-area: c;
+  background-color: #f2e3d0;
+  border-radius: 0 8px 0 0;
+  overflow-y: auto;
+}
+::-webkit-scrollbar {
+  width: 19px;
+}
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #afafaf;
+  border-radius: 20px;
+  border: 6px solid transparent;
+  background-clip: content-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #868686;
+}
+::-webkit-scrollbar-corner {
+  background: rgba(0,0,0,0);
+}

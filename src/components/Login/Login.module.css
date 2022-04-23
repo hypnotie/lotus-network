@@ -1,0 +1,101 @@
+.content_block {
+  height: 100%;
+  position: relative;
+	background-color: #bbd9fc;
+}
+
+.caution {
+	padding: 70px 0 0 180px;
+}
+
+.caution_data {
+	margin-top: 10px;
+}
+
+.caution_data div {
+	padding-top: 3px;
+}
+
+.login {
+	margin: 0;
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+	background: url("https://i.ibb.co/8PQy0NL/image.png") 0 0/cover no-repeat;
+	padding: 100px 100px 80px 100px;
+	border-radius: 8px;
+  box-shadow: 0 0 5px 1px #000;
+	height: 390px;
+}
+Form {
+	font-size: 0.85rem;
+}
+
+Form div {
+	margin: 0 0 15px 0;
+}
+
+Form input {
+	padding: 10px 15px;
+	position: relative;
+	border-radius: 5px;
+	box-shadow: 0 0 4px 0px #000;
+	width: 235px;
+	font-size: 1rem;
+	transition: box-shadow 0.3s ease;
+}
+
+Form input:focus {
+	outline-width: 0;
+	box-shadow: 0 0 8px 4px #6a6a6a;
+}
+
+input[type=password]:not(:placeholder-shown) {
+  font-family: Verdana;
+	letter-spacing: 0.125em;
+}
+
+Form button {
+	margin-top: 20px;
+	padding: 10px 62px;
+	cursor: pointer;
+	border-radius: 5px;
+	width: 235px;
+	background-color: #45393c;
+	color: #fff;
+	border: 2px outset #fff;
+	box-shadow: 0 0 2px 0px #fff;
+	font-size: 1rem;
+	transition: all 0.3s ease;
+}
+
+Form button:hover {
+	background-color: #534649;
+}
+
+Form button:focus {
+	outline-width: 0;
+	background-color: #534649;
+}
+
+Form button:active {
+	background-color: #45393c;
+}
+
+.error {
+	box-shadow: 0 0 4px 2px #d42f2f;
+}
+
+.error:focus {
+	box-shadow: 0 0 8px 4px #d42f2f;
+}
+
+.incorrect {
+	color: #fff;
+	background-color: #d42f2f;
+	box-shadow: 0 0 4px 0px #000;
+	border-radius: 5px;
+	padding: 10px 15px;
+}

@@ -1,0 +1,100 @@
+.content_block {
+  margin: 20px;
+}
+
+.allChats {
+  display: flex;
+  flex: 1 0 auto;
+  width: 100%;
+}
+
+.chatsColumns {
+  flex: 1 0 auto;
+  display: flex;
+  height: calc(100vh - 121px);
+  width: 100%;
+}
+
+.dialogues {
+  background-color: #d7ccc8;
+  padding: 2px 15px;
+  border-radius: 8px;
+  flex: 0 0 25%;
+}
+
+.messagesBlock {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  width: 100%;
+  overflow-y: scroll;
+  line-height: 1.25;
+  position: relative;
+  bottom: 0;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  margin: 8px -18px 2px 20px;
+  width: 100%;
+  white-space: pre-line;
+}
+
+.sentMessages {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  flex-direction: column;
+}
+
+.receivedMessages {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-direction: column;
+  margin-left: 19px;
+}
+
+.typeMessage {
+  display: flex;
+  margin: 18px 18px -2px 0;
+  position: relative;
+}
+
+.typeMessage textarea {
+  width: 100%;
+  height: 44px;
+  font-size: 0.9rem;
+  padding: 13px 70px 13px 17px;
+  outline: 0 solid;
+  resize: none;
+  border-radius: 8px 0 0 8px;
+  background-color: #d7ccc8;
+  transition: all 0.05s ease 0s;
+}
+
+textarea::placeholder {
+  color: #919191;
+}
+
+.typeMessage button {
+  cursor: pointer;
+  flex: 1 1 20%;
+  text-transform: uppercase;
+  font-weight: 500;
+  border-radius: 0 8px 8px 0;
+  background-color: rgb(114, 104, 93);
+  color: #e9f5f5;
+  font-size: 2rem;
+  padding: 0 5px 0 0;
+}
+
+.typeMessage button:active {
+  box-shadow: inset 0 0 4px #fff;
+  border: none;
+}
+
+.typeMessage button:focus {
+  outline: none;
+}
