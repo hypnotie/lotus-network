@@ -2,6 +2,7 @@
 	"name": "react-kabzda-1",
 	"version": "0.1.0",
 	"private": true,
+	"homepage": "https://hypnotie.github.io/lotus-network/",
 	"dependencies": {
 		"@testing-library/jest-dom": "^5.16.0",
 		"@testing-library/react": "^11.2.7",
