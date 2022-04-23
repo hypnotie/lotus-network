@@ -7,7 +7,8 @@ let initialState = {
 		{ id: 1, name: "Roman Shcherbyna" },
 		{ id: 2, name: "Artem Shcherbyna" },
 		{ id: 3, name: "Alina Matnurova" },
-		{ id: 4, name: "Ira Ulchich" }
+		{ id: 4, name: "Ira Ulchich" },
+		{ id: 5, name: "Magomed Soltanaliev" }
 	],
 	messages: {
 		receivedMessages: [
