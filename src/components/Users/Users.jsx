@@ -11,7 +11,7 @@ let Users = (props) => {
 			</div>
 			{props.isFetching
 				? <div className={s.preloader}><Preloader /></div>
-				: <div>
+				: <>
 					<div className={s.users}>
 						{props.users.map(u =>
 							<User
@@ -25,7 +25,7 @@ let Users = (props) => {
 					<div className={s.pagination_bottom}>
 						<Paginator currentPage={props.currentPage} onPageChanged={props.onPageChanged} totalItemsCount={props.totalItemsCount} pageSize={props.pageSize} />
 					</div>
-				</div>
+				</>
 			}
 		</div>
 	);

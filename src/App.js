@@ -4,7 +4,6 @@ import { connect, Provider } from "react-redux";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { initializeApp } from "./redux/app-reducer";
 import store from "./redux/redux-store";
-
 import s from "./App.module.css";
 import Login from "./components/Login/Login";
 import Preloader from "./components/common/Preloader/Preloader";
