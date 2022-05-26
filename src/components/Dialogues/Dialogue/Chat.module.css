@@ -74,6 +74,10 @@
   transition: all 0.05s ease 0s;
 }
 
+.typeMessage textarea:focus {
+	outline: none;
+}
+
 textarea::placeholder {
   color: #919191;
 }
