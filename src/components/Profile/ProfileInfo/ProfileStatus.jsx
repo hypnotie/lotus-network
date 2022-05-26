@@ -1,74 +1,55 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import s from "./ProfileStatus.module.css";
 
-class ProfileStatus extends React.Component {
-	componentDidUpdate(prevProps) {
-		if (prevProps.status !== this.props.status) {
-			this.setState({
-				status: this.props.status
-			});
-		}
-	}
+const ProfileStatusWithHooks = (props) => {
+	let [editMode, setEditMode] = useState(false);
+	let [status, setStatus] = useState(props.status);
 
-	state = {
-		editMode: false,
-		status: this.props.status
+	useEffect(() => {
+		setStatus(props.status);
+	}, [props.status]);
+
+	const activateEditMode = () => {
+		setEditMode(true);
 	};
 
-	activateEditMode = () => {
-		this.setState({
-			editMode: true
-		});
+	const deactivateEditMode = () => {
+		setEditMode(false);
+		props.updateStatus(status);
 	};
 
-	deactivateEditMode = () => {
-		this.setState({
-			editMode: false
-		});
-		this.props.updateStatus(this.state.status);
+	const onStatusChange = (e) => {
+		setStatus(e.currentTarget.value);
 	};
 
-	onStatusChange = (e) => {
-		this.setState({
-			status: e.currentTarget.value
-		})
-	};
-
-	// onFocus = (e) => {
-	// 	e.target.select();
-	// };
-
-	render() {
-		return (
-			<div>
-				<div className={s.status}>
-					{this.props.id === this.props.authorizedUserId
-						? <div className={s.myStatus}>
-							{!this.state.editMode
-								? <div onClick={this.activateEditMode}>
-									<span>{this.props.status || "Set status"}</span>
-								</div>
-								: <div>
-									<input
-										className={s.editStatus}
-										onChange={this.onStatusChange}
-										autoFocus={true}
-										onBlur={this.deactivateEditMode}
-										value={this.state.status}
-									// onFocus={this.onFocus}
-									/>
-								</div>
-							}
-						</div>
-						: <div className={s.userStatus}>
-							{this.props.status}
-						</div>
-					}
-				</div>
-				<div className={s.line}></div>
+	return (
+		<div>
+			<div className={s.status}>
+				{props.id === props.authorizedUserId
+					? <div className={s.myStatus}>
+						{!editMode
+							? <div onClick={activateEditMode}>
+								<span>{props.status || "Set status"}</span>
+							</div>
+							: <div>
+								<input
+									className={s.editStatus}
+									onChange={onStatusChange}
+									autoFocus={true}
+									onBlur={deactivateEditMode}
+									value={status}
+								/>
+							</div>
+						}
+					</div>
+					: <div className={s.userStatus}>
+						{props.status}
+					</div>
+				}
 			</div>
-		);
-	}
+			<div className={s.line}></div>
+		</div>
+	);
 }
 
-export default ProfileStatus;
+export default ProfileStatusWithHooks;

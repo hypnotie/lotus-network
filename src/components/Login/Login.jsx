@@ -6,13 +6,13 @@ import { login } from "../../redux/auth-reducer"
 import loginFormSchema from "../FormValidation/LoginFormSchema";
 import s from "./Login.module.css"
 
-const LoginForm = (props) => {
+const LoginForm = ({onSubmit}) => {
 	return <div className={s.login}>
 		<Formik
-			initialValues={{ email: "", password: "", rememberMe: false }}
+			initialValues={{ email: "", password: "" }}
 			validateOnChange
 			validateOnBlur
-			onSubmit={props.onSubmit}
+			onSubmit={onSubmit}
 			validationSchema={loginFormSchema}
 		>
 			{({ values, handleChange, handleBlur, isValid, handleSubmit, dirty }) => (
@@ -70,12 +70,12 @@ const LoginForm = (props) => {
 	</div >
 };
 
-const Login = (props) => {
+const Login = ({login, isAuth}) => {
 	const onSubmit = (values, { setFieldValue }) => {
-		props.login(values.email, values.password, values.rememberMe, setFieldValue);
+		login(values.email, values.password, setFieldValue);
 	};
 
-	if (props.isAuth) {
+	if (isAuth) {
 		return <Navigate to="/profile" />;
 	}
 

@@ -5,12 +5,12 @@ const MyPosts = (props) => {
 	let postsElements = props.posts.map(p => <Post key={p.id} id={p.id} text={p.text} likes={p.likes} />)
 
 	let onClickAddPost = () => {
-		if (props.newPostText) props.addPost();
+		if (props.newPostText) props.addPost(props.newPostText);
 	};
 
 	let onKeyAddPost = (e) => {
 		if (e.ctrlKey && e.key === "Enter") {
-			if (props.newPostText) props.addPost();
+			if (props.newPostText) props.addPost(props.newPostText);
 		}
 	};
 

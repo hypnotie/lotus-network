@@ -15,7 +15,7 @@ export const profileAPI = {
 };
 
 export const usersAPI = {
-	getUsers(currentPage = 1, pageSize = 30) { return instance.get(`users?page=${currentPage}&count=${pageSize}`); },
+	getUsers(currentPage = 1, pageSize = 50) { return instance.get(`users?page=${currentPage}&count=${pageSize}`); },
 	followUser(userId) { return instance.post(`follow/${userId}`); },
 	unfollowUser(userId) { return instance.delete(`follow/${userId}`); }
 };

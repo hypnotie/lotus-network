@@ -1,5 +1,5 @@
-const SEND_MESSAGE = "SEND-MESSAGE";
-const UPDATE_NEW_MESSAGE_TEXT = "UPDATE-NEW-MESSAGE-TEXT";
+const SEND_MESSAGE = "lotus-network/dialogues/SEND_MESSAGE";
+const UPDATE_NEW_MESSAGE_TEXT = "lotus-network/dialogues/UPDATE_NEW_MESSAGE_TEXT";
 
 let initialState = {
 	dialogues: [
