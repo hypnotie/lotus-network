@@ -1,7 +1,7 @@
 import s from "./Paginator.module.css";
 import { useEffect, useState } from "react";
 
-const Paginator = ({ totalItemsCount, pageSize, portionSize = 10, currentPage, onPageChanged }) => {
+const Paginator = ({ totalItemsCount, pageSize, portionSize = 8, currentPage, onPageChanged }) => {
 	let pagesCount = Math.ceil(totalItemsCount / pageSize);
 
 	let pages = [];
@@ -11,8 +11,8 @@ const Paginator = ({ totalItemsCount, pageSize, portionSize = 10, currentPage, o
 
 	let portionCount = Math.ceil(pagesCount / portionSize);
 	let [portionNumber, setPortionNumber] = useState(1);
-	let leftPortionPageNumber = (portionNumber - 1) * portionSize + 1;
-	let rightPortionPageNumber = portionNumber * portionSize;
+	let leftPortionPageNumber = (portionNumber - 1) * portionSize;
+	let rightPortionPageNumber = portionNumber * portionSize + 1;
 
 	useEffect(() => setPortionNumber(Math.ceil(currentPage / portionSize)), [currentPage]);
 
@@ -44,13 +44,15 @@ const Paginator = ({ totalItemsCount, pageSize, portionSize = 10, currentPage, o
 									<div
 										className={currentPage === p && s.selectedPage}
 										onClick={() => { onPageChanged(p); }}
-										key={p}>{p}
+										onMouseDown={(e) => { e.preventDefault(); }}
+										key={p}>
+										{p}
 									</div>
 								}
 							</>
 						)
 					})}
-				{portionNumber !== portionCount &&
+				{Math.round(pages.length / portionSize) > portionNumber &&
 					<div className={s.dots}>...</div>
 				}
 				<div

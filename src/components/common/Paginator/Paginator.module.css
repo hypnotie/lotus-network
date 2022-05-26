@@ -44,13 +44,18 @@
 .back a,
 .next a {
 	cursor: pointer;
-	opacity: 0.5;
+	opacity: 0.4;
 	z-index: 1;
-	transition: all 0.3s ease;
+	transition: opacity 0.1s ease;
 	height: 15px;
 }
 
 .back a:hover,
 .next a:hover {
+	opacity: 0.65;
+}
+
+.back a:active,
+.next a:active {
 	opacity: 1;
 }

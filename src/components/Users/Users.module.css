@@ -1,28 +1,12 @@
-.pagination_top,
-.pagination_bottom {
-	/* margin: 20px 15px 15px 20px;
-	padding: 0px 10px 0px 8px;
-	overflow: hidden;
-	background-color: #d7ccc8;
+.usersContent {
 	display: flex;
-	border-radius: 8px;
-	font-size: 0.9rem;
-	max-width: 727px; */
-}
-
-.pagination_top span,
-.pagination_bottom span {
-	/* cursor: pointer;
-	padding: 8px 11.5px; */
-}
-
-.pagination_top span:hover,
-.pagination_bottom span:hover {
-	/* background-color: #c0b7b6; */
+	flex-direction: column;
+	height: 100%;
 }
 
 .pagination_bottom {
 	margin: 0 0 5px 0;
+	flex: 0 1 auto;
 }
 
 .preloader img {
@@ -35,6 +19,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	animation: ani 0.5s forwards;
+	flex: 1 0 auto;
 }
 
 @keyframes ani {
