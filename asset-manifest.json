@@ -3,13 +3,13 @@
     "main.css": "/lotus-network/static/css/main.63e4a8bb.chunk.css",
     "main.js": "/lotus-network/static/js/main.5c17ae8d.chunk.js",
     "main.js.map": "/lotus-network/static/js/main.5c17ae8d.chunk.js.map",
-    "runtime-main.js": "/lotus-network/static/js/runtime-main.bc415739.js",
-    "runtime-main.js.map": "/lotus-network/static/js/runtime-main.bc415739.js.map",
+    "runtime-main.js": "/lotus-network/static/js/runtime-main.27573800.js",
+    "runtime-main.js.map": "/lotus-network/static/js/runtime-main.27573800.js.map",
     "static/js/2.a3857b1e.chunk.js": "/lotus-network/static/js/2.a3857b1e.chunk.js",
     "static/js/2.a3857b1e.chunk.js.map": "/lotus-network/static/js/2.a3857b1e.chunk.js.map",
     "static/css/3.4c4f1d8e.chunk.css": "/lotus-network/static/css/3.4c4f1d8e.chunk.css",
-    "static/js/3.c8e92038.chunk.js": "/lotus-network/static/js/3.c8e92038.chunk.js",
-    "static/js/3.c8e92038.chunk.js.map": "/lotus-network/static/js/3.c8e92038.chunk.js.map",
+    "static/js/3.692eb369.chunk.js": "/lotus-network/static/js/3.692eb369.chunk.js",
+    "static/js/3.692eb369.chunk.js.map": "/lotus-network/static/js/3.692eb369.chunk.js.map",
     "static/css/4.810d5189.chunk.css": "/lotus-network/static/css/4.810d5189.chunk.css",
     "static/js/4.d8d12531.chunk.js": "/lotus-network/static/js/4.d8d12531.chunk.js",
     "static/js/4.d8d12531.chunk.js.map": "/lotus-network/static/js/4.d8d12531.chunk.js.map",
@@ -40,7 +40,7 @@
     "static/media/users.2763681d.svg": "/lotus-network/static/media/users.2763681d.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.bc415739.js",
+    "static/js/runtime-main.27573800.js",
     "static/js/2.a3857b1e.chunk.js",
     "static/css/main.63e4a8bb.chunk.css",
     "static/js/main.5c17ae8d.chunk.js"
