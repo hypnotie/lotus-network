@@ -1,6 +1,6 @@
 const ProfileAboutForm = () => {
 	return <div>
-		Form
+
 	</div >
 };
 
