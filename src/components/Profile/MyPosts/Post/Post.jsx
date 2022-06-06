@@ -1,16 +1,17 @@
 import s from "./Post.module.css";
 import heart from "../../../../img/icons/profile/heart.svg";
+import def_profile from "../../../../img/icons/users/default-profile-picture.png"
 
 const Post = (props) => {
 	return (
 		<div className={s.profile_post}>
 			<img className={s.profile_picture}
-				src="https://i.ibb.co/KKfVVJd/image.png"
-				alt="Profile"
+				src={"https://social-network.samuraijs.com/activecontent/images/users/23279/user.jpg?v=25"}
+				alt={"Profile"}
 			/>
 			<div className={s.post_content}>
 				<h4 className={s.author_name}>
-					Maksym Hanhalo
+					Lotus
 				</h4>
 				<div className={s.text}>
 					{props.text}

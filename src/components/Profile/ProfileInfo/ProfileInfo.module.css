@@ -1,17 +1,78 @@
 .info {
 	display: flex;
 }
+.editSection {
+	display: flex;
+	margin-top: -20px;
+	justify-content: space-between;
+}
+.editInfoButton {
+	cursor: pointer;
+	background: transparent;
+}	
+.editInfoButton::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.editInfoButton::before {
+	/* content: "Edit info"; */
+	display: inline-block;
+	background: linear-gradient(top, #f9f9f9, #e3e3e3);
+	border-radius: 8px;
+	padding: 0 8px 0 6px;
+	outline: none;
+	white-space: nowrap;
+	cursor: pointer;
+}
 .avatar {
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	/* align-items: flex-end; */
+	width: 190px;
 }
 .avatarPic {
 	width: 190px;
 	object-fit: cover;
 	border-radius: 30%;
 	box-shadow: 0 0 2px 1px grey;
-	margin: 0 20px 0 0;
+}
+.uploadImage {
+	width: 0.1px;
+	/* font-size: 0.83rem; */
+	font-size: 0.75rem;
+	cursor: pointer;
+}	
+.uploadImage::-webkit-file-upload-button {
+  visibility: hidden;
+}
+.uploadImage::before {
+  /* content: "Update avatar"; */
+  display: inline-block;
+  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+	border-radius: 8px;
+  padding: 0 8px 0 6px;
+  outline: none;
+  white-space: nowrap;
+	cursor: pointer;
+}
+.editSectionButton:hover {
+	opacity: 1;
+}
+.editSectionButton {
+	display: flex;
+	align-items: center;
+	margin: 8px 0 0 0px;
+	opacity: 0.5;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+.editSectionButton label {
+	cursor: pointer;
+}
+.editSectionButton {
+	cursor: pointer;
+}
+.editSectionButton .editInfoButton {
+	cursor: pointer;
 }
 /* .follow {
 	display: flex;
@@ -41,7 +102,7 @@
 	text-transform: uppercase;
 } */
 .description {
-	margin: 0 0 0 5px;
+	margin: 0 0 0 25px;
 	padding: 2px 0 0 0;
 	flex: 1 1 auto;
 }

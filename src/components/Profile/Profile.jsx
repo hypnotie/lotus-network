@@ -20,8 +20,9 @@ const Profile = (props) => {
 					isAuth={props.isAuth}
 					updateStatus={props.updateStatus}
 					authorizedUserId={props.authorizedUserId}
+					savePhoto={props.savePhoto}
 				/>
-				<MyPostsContainer />
+				<MyPostsContainer/>
 			</div>
 		</div>
 	);
