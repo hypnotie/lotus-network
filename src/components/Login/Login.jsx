@@ -6,7 +6,7 @@ import { login } from "../../redux/auth-reducer"
 import loginFormSchema from "../FormValidation/LoginFormSchema";
 import s from "./Login.module.css"
 
-const LoginForm = ({onSubmit}) => {
+const LoginForm = ({ onSubmit }) => {
 	return <div className={s.login}>
 		<Formik
 			initialValues={{ email: "", password: "" }}
@@ -70,7 +70,7 @@ const LoginForm = ({onSubmit}) => {
 	</div >
 };
 
-const Login = ({login, isAuth}) => {
+const Login = ({ login, isAuth }) => {
 	const onSubmit = (values, { setFieldValue }) => {
 		login(values.email, values.password, setFieldValue);
 	};

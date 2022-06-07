@@ -48,7 +48,7 @@ export const login = (email, password, setFieldValue) => async (dispatch) => {
 	if (response.data.resultCode === 0) {
 		dispatch(getAuthUserData());
 	} else {
-		setFieldValue("general", response.data.messages.join(" "))
+		setFieldValue("general", response.data.messages.join(" "));
 	}
 };
 

@@ -29,15 +29,15 @@
   box-shadow: 0 0 5px 1px #000;
 	height: 390px;
 }
-Form {
+.login Form {
 	font-size: 0.85rem;
 }
 
-Form div {
+.login Form div {
 	margin: 0 0 15px 0;
 }
 
-Form input {
+.login Form input {
 	padding: 10px 15px;
 	position: relative;
 	border-radius: 5px;
@@ -47,17 +47,17 @@ Form input {
 	transition: box-shadow 0.3s ease;
 }
 
-Form input:focus {
-	outline-width: 0;
-	box-shadow: 0 0 8px 4px #6a6a6a;
+.login Form input:focus {
+outline-width: 0;
+box-shadow: 0 0 8px 4px #6a6a6a;
 }
 
-input[type=password]:not(:placeholder-shown) {
+.login input[type=password]:not(:placeholder-shown) {
   font-family: Verdana;
 	letter-spacing: 0.125em;
 }
 
-Form button {
+.login Form button {
 	margin-top: 20px;
 	padding: 10px 62px;
 	cursor: pointer;
@@ -71,16 +71,16 @@ Form button {
 	transition: all 0.3s ease;
 }
 
-Form button:hover {
+.login Form button:hover {
 	background-color: #534649;
 }
 
-Form button:focus {
+.login Form button:focus {
 	outline-width: 0;
 	background-color: #534649;
 }
 
-Form button:active {
+.login Form button:active {
 	background-color: #45393c;
 }
 

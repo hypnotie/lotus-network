@@ -15,7 +15,7 @@
   align-self: flex-start;
 }
 .post_content {
-	padding: 2px 20px 3px 15px;
+	padding: 2px 15px 3px 15px;
 	flex: 1 1 auto;
   white-space: pre-line;
   line-height: 1.3;
