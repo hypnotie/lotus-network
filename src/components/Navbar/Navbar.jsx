@@ -46,7 +46,7 @@ const Navbar = (props) => {
 					<div>Music</div>
 				</NavLink> */}
 			</div>
-			<div>
+			<div className={s.nav_bottom}>
 				{/* <NavLink to="/settings" className={s.nav_settings}>
 					<img src={settings} alt="Settings" />
 					<div>Settings</div>

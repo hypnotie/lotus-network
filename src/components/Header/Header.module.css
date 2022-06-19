@@ -17,7 +17,6 @@
 	align-items: flex-start;
 	justify-content: center;
 	margin: 0 0 0 20px;
-	z-index: 2;
 	position: absolute;
 }
 .header_left a:active {
@@ -44,6 +43,7 @@
 	width: 25px;
 	margin: 0 10px 0 0;
 	align-self: center;
+	border-radius: 30%;
 }
 .not_auth {
 	margin: 0 20px 0 0;

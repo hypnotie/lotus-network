@@ -2,7 +2,7 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-	let postsElements = props.posts.map(p => <Post key={p.id} id={p.id} text={p.text} likes={p.likes} />)
+	let postsElements = props.posts.map(p => <Post key={p.id} id={p.id} text={p.text} />)
 
 	let onClickAddPost = () => {
 		if (props.newPostText) props.addPost(props.newPostText);
@@ -20,7 +20,7 @@ const MyPosts = (props) => {
 	};
 
 	return (
-		<div>
+		<div className={s.myPosts}>
 			<h3 className={s.header}>
 				My Posts
 			</h3>

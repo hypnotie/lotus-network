@@ -31,18 +31,24 @@ const ProfileInfo = (props) => {
 				<img className={s.avatarPic} src={props.profile.photos.large || def_profile} alt="Profile" />
 				{props.authorizedUserId === props.profile.userId &&
 					<div className={s.editSection}>
-						<div className={s.editSectionButton}>
-							<label for={"file-input"}>
-								<svg viewBox="0 0 24 24" width="16" height="16"><path d="M17.721,3,16.308,1.168A3.023,3.023,0,0,0,13.932,0H10.068A3.023,3.023,0,0,0,7.692,1.168L6.279,3Z" /><circle cx="12" cy="14" r="4" /><path d="M19,5H5a5.006,5.006,0,0,0-5,5v9a5.006,5.006,0,0,0,5,5H19a5.006,5.006,0,0,0,5-5V10A5.006,5.006,0,0,0,19,5ZM12,20a6,6,0,1,1,6-6A6.006,6.006,0,0,1,12,20Z" /></svg>
-							</label>
+						<div className={[s.editSectionButton, s.choosePicture].join(" ")}>
+							<a href="#">
+								<label for={"file-input"}>
+									<svg viewBox="0 0 24 24" width="16" height="16"><path d="M17.721,3,16.308,1.168A3.023,3.023,0,0,0,13.932,0H10.068A3.023,3.023,0,0,0,7.692,1.168L6.279,3Z" /><circle cx="12" cy="14" r="4" /><path d="M19,5H5a5.006,5.006,0,0,0-5,5v9a5.006,5.006,0,0,0,5,5H19a5.006,5.006,0,0,0,5-5V10A5.006,5.006,0,0,0,19,5ZM12,20a6,6,0,1,1,6-6A6.006,6.006,0,0,1,12,20Z" /></svg>
+									<span>Change picture</span>
+								</label>
+							</a>
 							<input id={"file-input"} className={s.uploadImage} type={"file"} title={" "} onChange={onMainPhotoSelected} />
 						</div>
 						<div className={s.editSectionButton}>
 							{!editMode &&
 								<button className={s.editInfoButton} onClick={() => { setEditMode(true) }}>
-									<svg viewBox="0 0 24 24" width="14" height="14">
-										<path d="M1.172,19.119A4,4,0,0,0,0,21.947V24H2.053a4,4,0,0,0,2.828-1.172L18.224,9.485,14.515,5.776Z" /><path d="M23.145.855a2.622,2.622,0,0,0-3.71,0L15.929,4.362l3.709,3.709,3.507-3.506A2.622,2.622,0,0,0,23.145.855Z" />
-									</svg>
+									<a href="#">
+										<svg viewBox="0 0 24 24" width="14" height="14">
+											<path d="M1.172,19.119A4,4,0,0,0,0,21.947V24H2.053a4,4,0,0,0,2.828-1.172L18.224,9.485,14.515,5.776Z" /><path d="M23.145.855a2.622,2.622,0,0,0-3.71,0L15.929,4.362l3.709,3.709,3.507-3.506A2.622,2.622,0,0,0,23.145.855Z" />
+										</svg>
+										<span>Edit info</span>
+									</a>
 								</button>
 							}
 						</div>
@@ -193,10 +199,14 @@ const ProfileAbout = (props) => {
 			<div className={s.userInfo_right}>
 				{props.profile.lookingForAJob &&
 					<div className={s.is_job_looking}>
-						<img src={job} alt="Looking for a Job" />
+						<a href="#">
+							<img src={job} alt="Looking for a Job" />
+							<span>{props.profile.fullName} is looking for a job!</span>
+						</a>
 					</div>
 				}
 			</div>
+
 		</div>
 	);
 };

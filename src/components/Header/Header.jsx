@@ -21,8 +21,8 @@ const Header = (props) => {
 			{props.isAuth
 				? <div className={s.auth}>
 					<NavLink to={"/profile"}>
-						<img src={props.profile.small ? props.profile.small : def_profile} alt="Profile" />
-						{props.login}
+						<img src={props.currentUserProfile.photos.small || def_profile} alt="Profile" />
+						{props.currentUserProfile.fullName}
 					</NavLink>
 				</div>
 				: <div className={s.not_auth}>

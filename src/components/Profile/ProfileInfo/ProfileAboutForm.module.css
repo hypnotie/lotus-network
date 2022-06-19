@@ -3,6 +3,54 @@
 	font-size: 0.8rem;
 }
 
+.editHeader {
+	font-family: "Cinzel Decorative", cursive;
+	font-size: 1.05rem;
+	text-align: right;
+	margin: 0 0 5px 0;
+}
+
+.editHeaderContacts {
+	margin: -10px 0 -5px;
+}
+
+.editInfo_row {
+	display: flex;
+	justify-content: space-between;
+	margin: 0 3px 0 0;
+}
+
+.incorrect {
+	color: #fff;
+	background-color: #d42f2f;
+	box-shadow: 0 0 4px 0px #000;
+	border-radius: 5px;
+	padding: 10px 10px;
+	margin: 0 1px 0 0;
+}
+
+.editContacts {
+	display: flex;
+	justify-content: space-between;
+}
+
+.editContacts_left {
+	flex: 0 0 48%;
+}
+
+.editContacts_right {
+	flex: 0 0 48%;
+}
+
+.editFullName {
+	flex: 0 0 30%;
+}
+
+.editWebsite {
+	flex: 0 0 65%;
+}
+
+
 .editInfoButton:hover {
 	opacity: 1;
 }
@@ -13,31 +61,125 @@
 	margin: 8px 0 0 0;
 	opacity: 0.5;
 	cursor: pointer;
-	transition: all 0.2s ease;
 	background: transparent;
 	position: relative;
-	top: -170px;
+	top: -145px;
 	left: -43px;
+}
+
+.editInfoButton a {
+	text-decoration: none;
+	color: #fff;
+	font-weight: normal;
+	transition: all 3s ease;
+}
+
+.editInfoButton a span {
+	visibility: hidden;
+	top: 2.65em;
+	right: -2.45em;
+	min-width: 6em;
+	background-color: rgba(0, 0, 0, 0.798);
+	cursor: default;
+	padding: 4px 8px;
+	line-height: 1.3;
+	z-index: 1;
+  position: absolute;
+	text-align: center;
+	opacity: 0;
+	border-radius: 12px;
+	transition: all 0.3s ease;
+	font-size: 0.7rem;
+}
+
+
+.editInfoButton a:hover span {
+	visibility: visible;
+	opacity: 1;
+}
+
+.editInfoButton a span:hover {
+	visibility: hidden;
+	opacity: 0;
+}
+
+.editInfoButton a span::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%; 
+	right: 43%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgba(0, 0, 0, 0.798) transparent;
 }
 
 .editInfoButton label {
 	cursor: pointer;
 }
 
-.editInfoButton {
+.editCancel {
+	top: -360px;
+	left: -42.5px;
+}
+
+.editSection {
+	margin: 10px 0 0;
+}
+
+.editSectionFirst {
+	margin: 0;
+}
+
+.editSection input,
+.editSection textarea {
+	margin: 3px 0 0 9px;
+	padding: 3px 3px 3px 7px;
+	font-size: 0.8rem;
+	line-height: 1.35;
+	overflow: hidden;
+	overflow-wrap: break-word;
+	color: #5c5a57;
+	background-color: #d7ccc8;
+	border-radius: 8px;
+	width: 98%;
+	transition: all 0.05s ease 0s;
+}
+
+.editContacts input {
+	width: 96%;
+}
+
+.editSection input::placeholder,
+.editSection textarea::placeholder {
+	color: #959188dd;
+}
+
+.editSection input {
+	outline: 0 solid;
+}
+
+.editSection input:focus {
+	outline: 2px solid grey;
+}
+
+.editSection input[type="checkbox"] {
+	margin: 2px 0 0 0;
+	width: auto;
+	accent-color: #d7ccc8;
 	cursor: pointer;
 }
 
-.label {
-	background-color: #fff;
+.editSection input[type="checkbox"]:focus {
+	outline: none;
 }
 
-.fullName_label {
+.editSection_label {
 	display: flex;
 	overflow-wrap: break-word;
 }
 
-.fullName_label img {
+.editSection_label img {
 	width: 11px;
 	line-height: 1.4;
 	height: 12px;
@@ -46,7 +188,11 @@
 	top: 2.5px;
 }
 
-.fullName_label div {
+.editSocialIcon {
+	opacity: 0.5;
+}
+
+.editSection_label div {
 	max-width: 465px;
 	padding: 0 0 0 5px;
 	line-height: 1.4;

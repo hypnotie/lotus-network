@@ -31,7 +31,7 @@ class App extends Component {
 				<div className={s.app_wrapper}>
 					<HeaderContainer />
 					<NavbarContainer />
-					<div className={s.content}>
+					<div className={s.content} id={"content"}>
 						<Suspense fallback={""}>
 							<Routes>
 								<Route path="/"

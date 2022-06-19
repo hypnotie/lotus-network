@@ -13,7 +13,6 @@ const LoginForm = ({ onSubmit }) => {
 			validateOnChange
 			validateOnBlur
 			onSubmit={onSubmit}
-			validationSchema={loginFormSchema}
 		>
 			{({ values, handleChange, handleBlur, isValid, handleSubmit, dirty }) => (
 				<Form>
