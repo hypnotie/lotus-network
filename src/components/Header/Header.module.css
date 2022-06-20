@@ -17,6 +17,7 @@
 	align-items: flex-start;
 	justify-content: center;
 	margin: 0 0 0 20px;
+	z-index: 2;
 	position: absolute;
 }
 .header_left a:active {

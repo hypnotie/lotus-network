@@ -67,7 +67,7 @@ body {
   grid-area: c;
   background-color: #f2e3d0;
   border-radius: 0 8px 0 0;
-	overflow-y: scroll;
+	overflow-y: auto;
 }
 ::-webkit-scrollbar {
   width: 19px;

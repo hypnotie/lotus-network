@@ -5,27 +5,31 @@ import { compose } from "redux";
 import { getCurrentUserProfile } from "../../redux/profile-reducer";
 
 class HeaderContainer extends React.Component {
-	componentWillMount() {
+	componentDidMount() {
 		let userId = this.props.authorizedUserId;
 		this.props.getCurrentUserProfile(userId);
 	};
 
+	componentDidUpdate(prevProps) {
+		if (prevProps.authorizedUserId !== this.props.authorizedUserId) {
+			let userId = this.props.authorizedUserId;
+			this.props.getCurrentUserProfile(userId);
+		}
+	}
+
 	render() {
-		if (this.props.currentUserProfile !== null) {
-			return <Header {...this.props} />;
-		}
-		else {
-			return "";
-		}
+		return <Header {...this.props} />;
 	}
 };
 
-const mapStateToProps = (state) => ({
-	isAuth: state.auth.isAuth,
-	login: state.auth.login,
-	currentUserProfile: state.profilePage.currentUserProfile,
-	authorizedUserId: state.auth.id,
-});
+const mapStateToProps = (state) => {
+	return {
+		isAuth: state.auth.isAuth,
+		login: state.auth.login,
+		currentUserProfile: state.profilePage.currentUserProfile,
+		authorizedUserId: state.auth.id
+	}
+};
 
 export default compose(
 	connect(mapStateToProps, { getCurrentUserProfile })

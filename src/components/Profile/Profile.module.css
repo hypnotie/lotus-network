@@ -11,3 +11,13 @@
   padding: 20px;
 }
 
+.preloaderContainer {
+  height: 640px;
+  line-height: 640px;
+  text-align: center;
+}
+.preloader {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: normal;
+}

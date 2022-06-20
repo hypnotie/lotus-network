@@ -50,6 +50,14 @@
 	flex: 0 0 65%;
 }
 
+.editInfoButton svg {
+	opacity: 0.5;
+	transition: all 0.3s ease;
+}
+
+.editInfoButton svg:hover {
+	opacity: 1;
+}
 
 .editInfoButton:hover {
 	opacity: 1;
@@ -59,7 +67,6 @@
 	display: flex;
 	align-items: center;
 	margin: 8px 0 0 0;
-	opacity: 0.5;
 	cursor: pointer;
 	background: transparent;
 	position: relative;
@@ -67,18 +74,19 @@
 	left: -43px;
 }
 
-.editInfoButton a {
+.editInfoButton .hint {
 	text-decoration: none;
 	color: #fff;
 	font-weight: normal;
 	transition: all 3s ease;
+	cursor: pointer;
 }
 
-.editInfoButton a span {
+.editInfoButton .hint span {
 	visibility: hidden;
 	top: 2.65em;
-	right: -2.45em;
-	min-width: 6em;
+	right: -2.3em;
+	width: 6em;
 	background-color: rgba(0, 0, 0, 0.798);
 	cursor: default;
 	padding: 4px 8px;
@@ -93,17 +101,17 @@
 }
 
 
-.editInfoButton a:hover span {
+.editInfoButton .hint:hover span {
 	visibility: visible;
 	opacity: 1;
 }
 
-.editInfoButton a span:hover {
+.editInfoButton .hint span:hover {
 	visibility: hidden;
 	opacity: 0;
 }
 
-.editInfoButton a span::after {
+.editInfoButton .hint span::after {
   content: " ";
   position: absolute;
   bottom: 100%; 
@@ -121,6 +129,14 @@
 .editCancel {
 	top: -360px;
 	left: -42.5px;
+}
+
+.editCancel .hint span {
+	right: -2.45em;
+}
+
+.editCancel .hint span::after {
+	right: 44%;
 }
 
 .editSection {

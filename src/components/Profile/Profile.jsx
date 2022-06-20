@@ -9,10 +9,15 @@ const Profile = (props) => {
 	useEffect(() => {
 		document.getElementById("content").scrollTo(0, 0);
 	}, []);
-	console.log(props.profile);
 
 	if (!props.profile) {
-		return <Preloader />
+		return (
+			<div className={s.preloaderContainer}>
+				<span className={s.preloader}>
+					<Preloader />
+				</span>
+			</div>
+		)
 	}
 
 	return (

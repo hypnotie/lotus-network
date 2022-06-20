@@ -21,6 +21,10 @@ const ProfileAboutForm = ({ saveProfile, onSubmit, profile, setEditMode }) => {
 		isOk && setEditMode(false);
 	};
 
+	const cancelSubmit = (e) => {
+		return !!(e.preventDefault() & setEditMode(false))
+	};
+
 	return <div className={s.profileAboutForm}>
 		<Formik
 			initialValues={{
@@ -101,7 +105,7 @@ const ProfileAboutForm = ({ saveProfile, onSubmit, profile, setEditMode }) => {
 									type={"text"}
 									placeholder={"Text"}
 									autoComplete={"off"}
-									maxlength={160}
+									maxLength={160}
 									{...field} />
 							}
 						</Field>
@@ -122,7 +126,7 @@ const ProfileAboutForm = ({ saveProfile, onSubmit, profile, setEditMode }) => {
 									type={"text"}
 									placeholder={"Text"}
 									autoComplete={"off"}
-									maxlength={160}
+									maxLength={160}
 									{...field} />
 							}
 						</Field>
@@ -148,12 +152,12 @@ const ProfileAboutForm = ({ saveProfile, onSubmit, profile, setEditMode }) => {
 
 					</div>
 					<button className={s.editInfoButton} onClick={handleSubmit} type={"submit"}>
-						<a href="#">
+						<div className={s.hint}>
 							<svg viewBox="0 0 507.506 507.506" width="16" height="16"><g>
 								<path d="M163.865,436.934c-14.406,0.006-28.222-5.72-38.4-15.915L9.369,304.966c-12.492-12.496-12.492-32.752,0-45.248l0,0   c12.496-12.492,32.752-12.492,45.248,0l109.248,109.248L452.889,79.942c12.496-12.492,32.752-12.492,45.248,0l0,0   c12.492,12.496,12.492,32.752,0,45.248L202.265,421.019C192.087,431.214,178.271,436.94,163.865,436.934z" /></g>
 							</svg>
 							<span>Save</span>
-						</a>
+						</div>
 					</button>
 
 					<div className={[s.editHeader, s.editHeaderContacts].join(" ")}>socials</div>
@@ -296,13 +300,13 @@ const ProfileAboutForm = ({ saveProfile, onSubmit, profile, setEditMode }) => {
 							</div>
 						</div>
 					</div>
-					<button className={[s.editInfoButton, s.editCancel].join(" ")} onClick={() => { setEditMode(false) }}>
-						<a href="#">
+					<button className={[s.editInfoButton, s.editCancel].join(" ")} onClick={cancelSubmit}>
+						<div className={s.hint}>
 							<svg viewBox="0 0 512 512" width="14" height="14"><g>
 								<path d="M256,0C114.615,0,0,114.615,0,256s114.615,256,256,256s256-114.615,256-256C511.847,114.678,397.322,0.153,256,0z M256,64   c39.843,0.004,78.686,12.477,111.083,35.669L99.669,367.061c-61.503-86.178-41.499-205.897,44.679-267.4   C176.93,76.409,215.972,63.939,256,64z M256,448c-39.837-0.002-78.673-12.475-111.061-35.669l267.392-267.413   c61.514,86.17,41.527,205.891-44.643,267.406C335.098,435.588,296.042,448.064,256,448z" /></g>
 							</svg>
 							<span>Cancel</span>
-						</a>
+						</div>
 					</button>
 
 					{values.general && <div className={s.incorrect}>{values.general[0]}</div>}

@@ -1,6 +1,7 @@
 .info {
 	display: flex;
 }
+
 .editSection {
 	display: flex;
 	margin: -12px 0 12px;
@@ -17,22 +18,22 @@
 .editInfoButton::before {
 	/* content: "Edit info"; */
 	display: inline-block;
-	background: linear-gradient(top, #f9f9f9, #e3e3e3);
+	background: linear-gradient(to bottom, #f9f9f9, #e3e3e3);
 	border-radius: 8px;
 	padding: 0 8px 0 6px;
 	outline: none;
 	white-space: nowrap;
 }
 
-.editInfoButton a,
-.choosePicture a {
+.editInfoButton .hint,
+.choosePicture .hint {
 	text-decoration: none;
 	color: #fff;
 	font-weight: normal;
 }
 
-.editInfoButton a span,
-.choosePicture a span {
+.editInfoButton .hint span,
+.choosePicture .hint span {
 	visibility: hidden;
 	top: 2.6em;
 	background-color: rgba(0, 0, 0, 0.798);
@@ -47,24 +48,24 @@
 	font-size: 0.7rem;
 }
 
-.editInfoButton a span {
+.editInfoButton .hint span {
 	right: -2.5em;
 	min-width: 6em;
 }
 
-.choosePicture a span { 
+.choosePicture .hint span { 
 	right: -7em;
 	min-width: 9em;
 }
 
-.editInfoButton a:hover span,
-.choosePicture a:hover span {
+.editInfoButton .hint:hover span,
+.choosePicture .hint:hover span {
 	visibility: visible;
 	opacity: 1;
 }
 
-.editInfoButton a span::after,
-.choosePicture a span::after {
+.editInfoButton .hint span::after,
+.choosePicture .hint span::after {
   content: " ";
   position: absolute;
   bottom: 100%;  /* At the top of the tooltip */
@@ -74,11 +75,11 @@
   border-color: transparent transparent rgba(0, 0, 0, 0.798) transparent;
 }
 
-.editInfoButton a span::after {
+.editInfoButton .hint span::after {
 	left: 50%;
 }
 
-.choosePicture a span::after {
+.choosePicture .hint span::after {
 	left: 13.5%;
 }
 
@@ -106,7 +107,7 @@
 .uploadImage::before {
   /* content: "Update avatar"; */
   display: inline-block;
-  background: linear-gradient(top, #f9f9f9, #e3e3e3);
+  background: linear-gradient(to bottom, #f9f9f9, #e3e3e3);
 	border-radius: 8px;
   padding: 0 8px 0 6px;
   outline: none;
@@ -196,14 +197,14 @@
 	margin: 10px 0 0;
 }
 
-.is_job_looking a {
+.is_job_looking .hint {
 	text-decoration: none;
 	color: #fff;
 	cursor: default;
 	font-weight: normal;
 }
 
-.is_job_looking a span {
+.is_job_looking .hint span {
 	visibility: hidden;
 	top: 4.5em;
 	right: 0.05em;
@@ -221,12 +222,12 @@
 	font-size: 0.7rem;
 }
 
-.is_job_looking a:hover span {
+.is_job_looking .hint:hover span {
 	visibility: visible;
 	opacity: 1;
 }
 
-.is_job_looking a span::after {
+.is_job_looking .hint span::after {
   content: " ";
   position: absolute;
   bottom: 100%; 

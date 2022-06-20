@@ -3,16 +3,17 @@ import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
 import { Field, Form, Formik } from "formik";
 import { login } from "../../redux/auth-reducer"
-import loginFormSchema from "../FormValidation/LoginFormSchema";
 import s from "./Login.module.css"
+import loginFormSchema from "../FormValidation/LoginFormSchema";
 
-const LoginForm = ({ onSubmit }) => {
+const LoginForm = ({ onSubmit, captchaUrl }) => {
 	return <div className={s.login}>
 		<Formik
-			initialValues={{ email: "", password: "" }}
+			initialValues={{ email: "", password: "", captcha: "" }}
 			validateOnChange
 			validateOnBlur
 			onSubmit={onSubmit}
+			validationSchema={loginFormSchema}
 		>
 			{({ values, handleChange, handleBlur, isValid, handleSubmit, dirty }) => (
 				<Form>
@@ -28,7 +29,7 @@ const LoginForm = ({ onSubmit }) => {
 								meta: { touched, error }
 							}) => <input
 									type={"text"}
-									className={touched && error ? s.error : ""}
+									className={touched && error ? s.error : s.input}
 									placeholder={"Email"}
 									autoComplete={"off"}
 									{...field} />
@@ -47,14 +48,37 @@ const LoginForm = ({ onSubmit }) => {
 								meta: { touched, error }
 							}) => <input
 									type={"password"}
-									className={touched && error ? s.error : ""}
+									className={touched && error ? s.error : s.input}
 									placeholder={"Password"}
 									{...field} />
 							}
 						</Field>
 					</div>
 
-					{values.general ? <div className={s.incorrect}>{values.general}</div> : ""}
+					{captchaUrl &&
+						<div className={s.captcha}>
+							<img src={captchaUrl} className={s.captchaImage} alt="Captcha" />
+							<div>
+								<Field
+									name={"captcha"}
+									onChange={handleChange}
+									onBlur={handleBlur}
+									value={values.captcha}
+								>
+									{({
+										field,
+										meta: { touched, error }
+									}) => <input
+											type={"text"}
+											className={touched && error ? s.error : s.input}
+											placeholder={"Captcha"}
+											{...field} />
+									}
+								</Field>
+							</div>
+						</div>
+					}
+					{values.general ? <div className={s.incorrect}>{values.general[0]}</div> : ""}
 
 					<button
 						disabled={!isValid && !dirty}
@@ -69,9 +93,9 @@ const LoginForm = ({ onSubmit }) => {
 	</div >
 };
 
-const Login = ({ login, isAuth }) => {
+const Login = ({ login, isAuth, captchaUrl }) => {
 	const onSubmit = (values, { setFieldValue }) => {
-		login(values.email, values.password, setFieldValue);
+		login(values.email, values.password, values.captcha, setFieldValue);
 	};
 
 	if (isAuth) {
@@ -80,18 +104,19 @@ const Login = ({ login, isAuth }) => {
 
 	return <div className={s.content_block}>
 		<div className={s.caution}>
-			<div>Use this email and password to login to your test account:</div>
-			<div className={s.caution_data}>
+			<div className={s.cautionLabel}>Please use this email and password<br/>to login to your test account:</div>
+			<div className={s.cautionData}>
 				<div>hypno7ie@gmail.com</div>
 				<div>lotus-network-test</div>
 			</div>
 		</div>
-		<LoginForm onSubmit={onSubmit} />
+		<LoginForm onSubmit={onSubmit} captchaUrl={captchaUrl} />
 	</div>;
 }
 
 const mapStateToProps = (state) => ({
-	isAuth: state.auth.isAuth
+	isAuth: state.auth.isAuth,
+	captchaUrl: state.auth.url
 });
 
 export default connect(mapStateToProps, { login })(Login);

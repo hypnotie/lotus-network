@@ -5,15 +5,30 @@
 }
 
 .caution {
-	padding: 70px 0 0 180px;
+	width: 435px;
+	margin: 0 auto;
+	padding: 40px 0;
 }
 
-.caution_data {
-	margin-top: 10px;
+.cautionLabel {
+	font-weight: 500;
+	text-align: center;
+	line-height: 1.2;
 }
 
-.caution_data div {
-	padding-top: 3px;
+.cautionData {
+	margin: 25px 0 0;
+	padding: 10px 0;
+	text-align: center;
+	color: #f3c37e;
+	background-color: #46607e;
+	border-radius: 8px 8px 0 0;
+	box-shadow: 0 0 5px 1px #000;
+	text-shadow: 0px 0px 4px #000;
+}
+
+.cautionData div {
+line-height: 1.2;
 }
 
 .login {
@@ -24,20 +39,24 @@
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 	background: url("https://i.ibb.co/8PQy0NL/image.png") 0 0/cover no-repeat;
-	padding: 100px 100px 80px 100px;
-	border-radius: 8px;
+	padding: 0 100px;
+	border-radius: 0 0 8px 8px;
   box-shadow: 0 0 5px 1px #000;
-	height: 390px;
+	height: 420px;
+	display: flex;
+	align-items: center;
 }
 .login Form {
 	font-size: 0.85rem;
+	display: flex;
+	flex-direction: column;
 }
 
-.login Form div {
+.login Form div:not(:last-child) {
 	margin: 0 0 15px 0;
 }
 
-.login Form input {
+.input {
 	padding: 10px 15px;
 	position: relative;
 	border-radius: 5px;
@@ -47,14 +66,22 @@
 	transition: box-shadow 0.3s ease;
 }
 
-.login Form input:focus {
-outline-width: 0;
-box-shadow: 0 0 8px 4px #6a6a6a;
+.input:focus {
+	outline-width: 0;
+	box-shadow: 0 0 8px 4px #6a6a6a;
 }
 
-.login input[type=password]:not(:placeholder-shown) {
+.input[type=password]:not(:placeholder-shown) {
   font-family: Verdana;
 	letter-spacing: 0.125em;
+}
+
+.captchaImage {
+	width: 235px;
+	height: 70px;
+	border-radius: 5px;
+	box-shadow: 0 0 4px 2px #d42f2f;
+	margin: 0 auto 15px;
 }
 
 .login Form button {
@@ -85,10 +112,17 @@ box-shadow: 0 0 8px 4px #6a6a6a;
 }
 
 .error {
+	padding: 10px 15px;
+	position: relative;
+	border-radius: 5px;
+	width: 235px;
+	font-size: 1rem;
+	transition: box-shadow 0.3s ease;
 	box-shadow: 0 0 4px 2px #d42f2f;
 }
 
 .error:focus {
+	outline-width: 0;
 	box-shadow: 0 0 8px 4px #d42f2f;
 }
 

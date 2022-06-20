@@ -2,21 +2,21 @@ import s from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 const MyPosts = (props) => {
-	let postsElements = props.posts.map(p => <Post key={p.id} id={p.id} text={p.text} />)
+	let postsElements = props.posts.map(p => <Post key={p.id} id={p.id} text={p.text} currentUserProfile={props.currentUserProfile} />);
 
 	let onClickAddPost = () => {
-		if (props.newPostText) props.addPost(props.newPostText);
+		if (props.newPostText) props.addPostCreator(props.newPostText);
 	};
 
 	let onKeyAddPost = (e) => {
 		if (e.ctrlKey && e.key === "Enter") {
-			if (props.newPostText) props.addPost(props.newPostText);
+			if (props.newPostText) props.addPostCreator(props.newPostText);
 		}
 	};
 
 	let onPostChange = (e) => {
 		let text = e.target.value;
-		props.updateNewPostText(text);
+		props.updateNewPostTextCreator(text);
 	};
 
 	return (

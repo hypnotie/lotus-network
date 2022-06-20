@@ -4,7 +4,7 @@ const instance = axios.create({
 	withCredentials: true,
 	baseURL: "https://social-network.samuraijs.com/api/1.0/",
 	headers: {
-		"API-KEY": "140d028e-900b-45d6-98cd-b35fe1f3597d" // Lotus
+		"API-KEY": "140d028e-900b-45d6-98cd-b35fe1f3597d" // hypno7ie@gmail.com
 	}
 });
 
@@ -30,8 +30,9 @@ export const usersAPI = {
 
 export const authAPI = {
 	getAuth() { return instance.get(`auth/me`); },
-	login(email, password) {
-		return instance.post(`auth/login`, { email, password });
+	login(email, password, captcha) {
+		return instance.post(`auth/login`, { email, password, captcha });
 	},
-	logout() { return instance.delete(`auth/login`); }
+	logout() { return instance.delete(`auth/login`); },
+	getCaptcha() { return instance.get(`security/get-captcha-url`) }
 };

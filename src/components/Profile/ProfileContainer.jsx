@@ -5,12 +5,14 @@ import { connect } from "react-redux";
 import { compose } from "redux";
 import withRouter from "../../hoc/withRouter";
 import { Navigate } from "react-router-dom";
+import { logout } from "../../redux/auth-reducer";
 
 class ProfileContainer extends React.Component {
 	componentDidMount() {
 		let userId = this.props.match ? this.props.match.params.userId : this.props.authorizedUserId;
 		this.props.getProfile(userId);
 		this.props.getStatus(userId);
+		this.props.authorizedUserId !== 23279 && this.props.logout();
 	}
 
 	render() {
@@ -39,6 +41,6 @@ let mapStateToProps = (state) => ({
 
 
 export default compose(
-	connect(mapStateToProps, { getProfile, getStatus, updateStatus, savePhoto, saveProfile }),
+	connect(mapStateToProps, { getProfile, getStatus, updateStatus, savePhoto, saveProfile, logout }),
 	withRouter,
 )(ProfileContainer);

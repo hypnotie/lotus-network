@@ -1,7 +1,7 @@
 import s from "./Header.module.css";
 import { NavLink } from "react-router-dom";
-import def_profile from "../../img/icons/users/default-profile-picture.png"
 import sign_in from "../../img/icons/header/sign-in.svg"
+import def_profile from "../../img/icons/users/default-profile-picture.png"
 
 const Header = (props) => {
 	return (
@@ -18,7 +18,7 @@ const Header = (props) => {
 					</NavLink>
 				}
 			</div>
-			{props.isAuth
+			{props.isAuth && props.currentUserProfile !== null
 				? <div className={s.auth}>
 					<NavLink to={"/profile"}>
 						<img src={props.currentUserProfile.photos.small || def_profile} alt="Profile" />
