@@ -5,44 +5,42 @@
 }
 
 .caution {
-	width: 435px;
+	width: 477px;
 	margin: 0 auto;
-	padding: 40px 0;
+	padding: 40px 0 10px;
 }
 
 .cautionLabel {
 	font-weight: 500;
 	text-align: center;
 	line-height: 1.2;
+	width: 475px;
 }
 
 .cautionData {
-	margin: 25px 0 0;
+	margin: 25px 0 0 20px;
 	padding: 10px 0;
 	text-align: center;
 	color: #f3c37e;
-	background-color: #46607e;
+	background: url("../../img/backgrounds/login-data.png") 0 0/cover no-repeat;
 	border-radius: 8px 8px 0 0;
 	box-shadow: 0 0 5px 1px #000;
 	text-shadow: 0px 0px 4px #000;
+	width: 435px;
 }
 
 .cautionData div {
-line-height: 1.2;
+	line-height: 1.2;
 }
 
 .login {
-	margin: 0;
-  position: absolute;
-  top: 60%;
-  left: 50%;
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
+	margin: 0 auto;
 	background: url("https://i.ibb.co/8PQy0NL/image.png") 0 0/cover no-repeat;
 	padding: 0 100px;
 	border-radius: 0 0 8px 8px;
   box-shadow: 0 0 5px 1px #000;
 	height: 420px;
+	width: 435px;
 	display: flex;
 	align-items: center;
 }

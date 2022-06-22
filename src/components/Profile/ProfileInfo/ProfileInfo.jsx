@@ -63,10 +63,14 @@ const ProfileInfo = (props) => {
 				<div className={s.userInfo}>
 					<div className={s.userInfo_top}>
 						<h2 className={s.name}>{props.profile.fullName}</h2>
-						<div className={s.id}>
-							<img className={s.id_icon} src={id_pic} alt={"User's ID"} />
-							<div className={s.id_number}>{props.profile.userId}</div>
-						</div>
+						<button className={s.hint}>
+							<div className={s.id} onClick={() => { navigator.clipboard.writeText("https://hypnotie.github.io/users/" + props.profile.userId) }}>
+								<img className={s.id_icon} src={id_pic} alt={"User's ID"} />
+								<div className={s.id_number}>{props.profile.userId}</div>
+								<span className={s.copyLink}>Click to copy profile link</span>
+								<span className={s.linkCopied}>Link copied!</span>
+							</div>
+						</button>
 					</div>
 					<ProfileStatus
 						status={props.status}

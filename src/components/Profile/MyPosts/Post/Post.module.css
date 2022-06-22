@@ -15,7 +15,7 @@
   align-self: flex-start;
 }
 .post_content {
-	padding: 2px 15px 3px 15px;
+	padding: 2px 0 3px 15px;
 	flex: 1 1 auto;
   white-space: pre-line;
   line-height: 1.3;
@@ -29,7 +29,58 @@
 .author_name {
 	font-weight: 500;
 	line-height: 1.4;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	position: relative;
 }
+.author_name img {
+	width: 20px;
+}
+
+.author_name .hint {
+	text-decoration: none;
+	color: #fff;
+	font-weight: normal;
+	transition: all 3s ease;
+}
+.author_name .hint span {
+	visibility: hidden;
+	top: 2.65em;
+	right: -0.7em;
+	width: 16em;
+	background-color: rgba(0, 0, 0, 0.798);
+	cursor: default;
+	padding: 4px 8px;
+	line-height: 1.3;
+	z-index: 1;
+  position: absolute;
+	text-align: center;
+	opacity: 0;
+	border-radius: 12px;
+	transition: all 0.3s ease;
+	font-size: 0.7rem;
+}
+.author_name .hint:hover span {
+	visibility: visible;
+	opacity: 1;
+}
+.author_name .hint span:hover {
+	visibility: hidden;
+	opacity: 0;
+}
+.author_name .hint span::after {
+  content: " ";
+  position: absolute;
+  bottom: 100%; 
+	right: 7.5%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: transparent transparent rgba(0, 0, 0, 0.798) transparent;
+}
+
+
 .likes_count {
   padding: 0 8px 0 0;
   color: #505050;

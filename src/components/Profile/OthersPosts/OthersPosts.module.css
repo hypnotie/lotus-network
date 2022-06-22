@@ -1,14 +1,19 @@
-.header {
-	margin: 55px 0 15px 0;
+.headerPostsElements,
+.headerNoPosts {
+	margin: 55px 0 25px 0;
 	font-weight: 500;
 	background: url("../../../img/icons/profile/my_posts.svg") 5px 0 / contain no-repeat;
 	padding: 0 0 0 27px;
 }
 
+.headerPostsElements {
+	margin: 54px 0 25px 0;
+}
+
 .noPosts {
   display: flex;
   flex-direction: column;
-  margin: 15px -18px 2px 20px;
+  margin: 0 -18px 2px 20px;
   width: 100%;
   white-space: pre-line;
   justify-content: center;

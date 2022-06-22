@@ -1,11 +1,14 @@
 import s from "./Profile.module.css";
 import MyPostsContainer from "./MyPosts/MyPostsContainer";
-import OthersPosts from "./OthersPosts/OthersPosts";
+import OthersPostsContainer from "./OthersPosts/OtherPostsContainer";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 import { useEffect } from "react";
 import Preloader from "../common/Preloader/Preloader";
+import Post from "./MyPosts/Post/Post";
 
 const Profile = (props) => {
+	let postsElements = props.posts.map(p => <Post key={p.id} id={p.id} text={p.text} profile={props.profile} />);
+
 	useEffect(() => {
 		document.getElementById("content").scrollTo(0, 0);
 	}, []);
@@ -40,7 +43,9 @@ const Profile = (props) => {
 					savePhoto={props.savePhoto}
 					saveProfile={props.saveProfile}
 				/>
-				{props.authorizedUserId === props.profile.userId ? <MyPostsContainer /> : <OthersPosts />}
+				{props.authorizedUserId === props.profile.userId
+					? <MyPostsContainer postsElements={postsElements} />
+					: <OthersPostsContainer postsElements={postsElements} />}
 			</div>
 		</div>
 	);

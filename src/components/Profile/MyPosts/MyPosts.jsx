@@ -1,9 +1,7 @@
 import s from "./MyPosts.module.css";
-import Post from "./Post/Post";
+import attention from "../../../img/icons/common/attention-light.svg"
 
 const MyPosts = (props) => {
-	let postsElements = props.posts.map(p => <Post key={p.id} id={p.id} text={p.text} currentUserProfile={props.currentUserProfile} />);
-
 	let onClickAddPost = () => {
 		if (props.newPostText) props.addPostCreator(props.newPostText);
 	};
@@ -25,13 +23,19 @@ const MyPosts = (props) => {
 				My Posts
 			</h3>
 			<div>
-				<textarea onChange={onPostChange} onKeyDown={onKeyAddPost} placeholder={"What's on your mind?"} value={props.newPostText}
+				<textarea onChange={onPostChange} onKeyDown={onKeyAddPost} placeholder={"What’s on your mind?"} value={props.newPostText}
 					cols="80" rows="3" />
 				<div className={s.add_post}>
 					<button onClick={onClickAddPost}>Add Post</button>
 				</div>
 			</div>
-			{postsElements}
+			<div className={s.hintContainer}>
+				<div className={s.hint}>
+					<img src={attention} alt="Attention" />
+					<span>This section contains demo data, the functionality of which has not yet been implemented.</span>
+				</div>
+			</div>
+			{props.postsElements}
 		</div>
 	);
 }

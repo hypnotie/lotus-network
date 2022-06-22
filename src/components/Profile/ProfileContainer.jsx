@@ -4,7 +4,7 @@ import { getProfile, getStatus, updateStatus, savePhoto, saveProfile } from "../
 import { connect } from "react-redux";
 import { compose } from "redux";
 import withRouter from "../../hoc/withRouter";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 import { logout } from "../../redux/auth-reducer";
 
 class ProfileContainer extends React.Component {
@@ -17,7 +17,7 @@ class ProfileContainer extends React.Component {
 
 	render() {
 		return <>
-			{!this.props.match && !this.props.authorizedUserId && <Navigate to="/login" />}
+			{/* {this.props.isAuth && this.props.authorizedUserId !== 23279 && <Navigate to="/login" />} */}
 			<Profile
 				{...this.props}
 				profile={this.props.profile}
@@ -34,6 +34,7 @@ class ProfileContainer extends React.Component {
 
 let mapStateToProps = (state) => ({
 	profile: state.profilePage.profile,
+	posts: state.profilePage.posts,
 	status: state.profilePage.status,
 	isAuth: state.auth.isAuth,
 	authorizedUserId: state.auth.id

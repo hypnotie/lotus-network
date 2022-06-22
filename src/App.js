@@ -35,19 +35,19 @@ class App extends Component {
 						<Suspense fallback={""}>
 							<Routes>
 								<Route path="/"
-									element={<ProfileContainer key={"mainOne"} />} />
+									element={<UsersContainer key={"mainOne"} />} />
 								<Route path="/lotus-network"
-									element={<ProfileContainer key={"mainTwo"} />} />
-								<Route path="/profile"
+									element={<UsersContainer key={"mainTwo"} />} />
+								<Route path={`/users/` + this.props.authorizedUserId}
 									element={<ProfileContainer key={"me"} />} />
+								<Route path="/users/*"
+									element={<ProfileContainer key={"user"} />} />
 								<Route path="/messages"
 									element={<DialoguesContainer key={"dialogues"} />} />
 								<Route path="/messages/*"
 									element={<ChatContainer key={"chat"} />} />
 								<Route path="/users"
 									element={<UsersContainer key={"users"} />} />
-								<Route path="/users/*"
-									element={<ProfileContainer key={"user"} />} />
 								<Route path="/login"
 									element={<Login key={"login"} />} />
 							</Routes>
@@ -60,7 +60,8 @@ class App extends Component {
 }
 
 const mapStateToProps = (state) => ({
-	initialized: state.app.initialized
+	initialized: state.app.initialized,
+	authorizedUserId: state.auth.id
 });
 
 let AppContainer = compose(

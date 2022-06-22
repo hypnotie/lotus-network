@@ -93,18 +93,21 @@ const LoginForm = ({ onSubmit, captchaUrl }) => {
 	</div >
 };
 
-const Login = ({ login, isAuth, captchaUrl }) => {
+const Login = ({ login, isAuth, captchaUrl, authorizedUserId }) => {
 	const onSubmit = (values, { setFieldValue }) => {
 		login(values.email, values.password, values.captcha, setFieldValue);
 	};
 
 	if (isAuth) {
-		return <Navigate to="/profile" />;
+		return <Navigate to={"/users/" + authorizedUserId} />;
 	}
 
 	return <div className={s.content_block}>
 		<div className={s.caution}>
-			<div className={s.cautionLabel}>Please use this email and password<br/>to login to your test account:</div>
+			<div className={s.cautionLabel}>
+				Please use this email and password to login to your test account.<br />
+				Otherwise, you will be immediately logged out.
+			</div>
 			<div className={s.cautionData}>
 				<div>hypno7ie@gmail.com</div>
 				<div>lotus-network-test</div>
@@ -116,6 +119,7 @@ const Login = ({ login, isAuth, captchaUrl }) => {
 
 const mapStateToProps = (state) => ({
 	isAuth: state.auth.isAuth,
+	authorizedUserId: state.auth.id,
 	captchaUrl: state.auth.url
 });
 

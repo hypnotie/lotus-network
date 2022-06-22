@@ -63,7 +63,8 @@ const profileReducer = (state = initialState, action) => {
 		case SAVE_PHOTO_SUCCESS:
 			return {
 				...state,
-				profile: { ...state.profile, photos: action.photos }
+				profile: { ...state.profile, photos: action.photos },
+				currentUserProfile: { ...state.currentUserProfile, photos: action.photos }
 			}
 		default:
 			return state;

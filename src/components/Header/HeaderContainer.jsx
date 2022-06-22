@@ -2,16 +2,18 @@ import React from "react";
 import Header from "./Header";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { getCurrentUserProfile } from "../../redux/profile-reducer";
+import { getProfile, getCurrentUserProfile } from "../../redux/profile-reducer";
 
 class HeaderContainer extends React.Component {
 	componentDidMount() {
 		let userId = this.props.authorizedUserId;
-		this.props.getCurrentUserProfile(userId);
+		if (userId !== null) {
+			this.props.getCurrentUserProfile(userId);
+		}
 	};
 
 	componentDidUpdate(prevProps) {
-		if (prevProps.authorizedUserId !== this.props.authorizedUserId) {
+		if (this.props.authorizedUserId !== null && prevProps.authorizedUserId !== this.props.authorizedUserId) {
 			let userId = this.props.authorizedUserId;
 			this.props.getCurrentUserProfile(userId);
 		}
@@ -32,5 +34,5 @@ const mapStateToProps = (state) => {
 };
 
 export default compose(
-	connect(mapStateToProps, { getCurrentUserProfile })
+	connect(mapStateToProps, { getProfile, getCurrentUserProfile })
 )(HeaderContainer);

@@ -22,7 +22,7 @@ const Navbar = (props) => {
 			<div className={s.nav_top}>
 				{props.isAuth
 					? <div>
-						<NavLink to="/profile" className={s.nav_profile}>
+						<NavLink to={"/users/" + props.authorizedUserId} className={s.nav_profile}>
 							<img src={profile} alt="Profile" />
 							<div>Profile</div>
 						</NavLink>

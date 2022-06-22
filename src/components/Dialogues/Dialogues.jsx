@@ -1,5 +1,6 @@
 import s from "./Dialogues.module.css";
 import Dialogue from "./Dialogue/Dialogue";
+import attention from "../../img/icons/common/attention-light.svg"
 
 const Dialogues = (props) => {
 	let state = props.dialoguesPage;
@@ -10,7 +11,13 @@ const Dialogues = (props) => {
 			<div className={s.allChats}>
 				<div className={s.chatsColumns}>
 					<div className={s.dialogues}>
-						{dialoguesElements}
+						<div className={s.users}>
+							{dialoguesElements}
+						</div>
+						<div className={s.hint}>
+							<img src={attention} alt="Attention" />
+							<span>This section contains demo data, the functionality of which has not yet been implemented.</span>
+						</div>
 					</div>
 					<div className={s.messages}>
 						<div className={s.message}>
