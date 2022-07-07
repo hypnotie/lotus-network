@@ -9,8 +9,8 @@ import def_profile from "../../../img/icons/users/default-profile-picture.png";
 import id_pic from "../../../img/icons/users/id.svg";
 import ProfileStatus from "./ProfileStatus";
 import ProfileAboutForm from "./ProfileAboutForm";
-// import follow from "../../../img/icons/profile/follow.svg";
-// import unfollow from "../../../img/icons/profile/unfollow.svg";
+import followIcon from "../../../img/icons/profile/follow.svg";
+import unfollowIcon from "../../../img/icons/profile/unfollow.svg";
 
 const ProfileInfo = (props) => {
 	let [editMode, setEditMode] = useState(false);
@@ -54,10 +54,28 @@ const ProfileInfo = (props) => {
 						</div>
 					</div>
 				}
-				{/* <button className={s.follow}>
-					<img src={follow} alt="Follow" />
-					<p>Follow</p>
-				</button> */}
+				{props.authorizedUserId && props.authorizedUserId !== props.profile.userId &&
+					<div>
+						{props.isFollowed
+							? <button
+								className={s.follow}
+								disabled={props.followingInProgress.some(id => id === props.profile.userId)}
+								onClick={() => { props.unfollow(props.profile.userId); }}>
+								<img src={unfollowIcon} alt="Unfollow" />
+								<p>Unfollow</p>
+							</button>
+							: <button
+								className={s.follow}
+								disabled={props.followingInProgress.some(id => id === props.profile.userId)}
+								onClick={() => { props.follow(props.profile.userId); }}>
+								<img src={followIcon} alt="Follow" />
+								<p>Follow</p>
+							</button>
+						}
+					</div>
+				}
+				{console.log(props.isFollowed)}
+
 			</div>
 			<div className={s.description}>
 				<div className={s.userInfo}>

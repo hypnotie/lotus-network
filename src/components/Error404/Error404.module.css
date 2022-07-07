@@ -1,0 +1,43 @@
+.error404 {
+	height: 100%;
+	width: 100%;
+	background-color: #bbd9fc;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 0 0 60px;
+}
+
+.digits {
+	font-family: "Cinzel Decorative", cursive;
+	font-size: 10rem;
+	margin: 0 0 15px;
+}
+
+.line {
+	background-color: #000;
+	height: 1px;
+	width: 38%;
+	margin: 0 0 15px;
+}
+
+.button {
+	margin: 50px 0 0 3px;
+	padding: 8px 18px;
+	font-size: 0.85rem;
+	border-radius: 8px;
+	background-color: #000;
+	color: #fff;
+	cursor: pointer;
+	transition: all 0.2s ease;
+	outline: 1px solid #000;
+	outline-offset: -1px;
+}
+
+.button:hover {
+	background-color: #bbd9fc;
+	color: #000;
+	outline: 1px solid #000;
+	outline-offset: -1px;
+}

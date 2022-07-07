@@ -64,6 +64,12 @@
 	opacity: 1;
 }
 
+.editInfoButton .hint span:hover,
+.choosePicture .hint span:hover {
+	display: none;
+	opacity: 0;
+}
+
 .editInfoButton .hint span::after,
 .choosePicture .hint span::after {
   content: " ";
@@ -133,7 +139,7 @@
 .editSectionButton .editInfoButton {
 	cursor: pointer;
 }
-/* .follow {
+.follow {
 	display: flex;
 	margin: 13px 0 0;
 	padding: 7px 40px;
@@ -143,6 +149,8 @@
 	cursor: pointer;
 	transition: all 0.05s ease 0s;
 	outline: 0 solid;
+	width: 100%;
+	justify-content: center;
 }
 .follow:hover {
 	outline: 2px solid grey;
@@ -159,7 +167,7 @@
 	font-size: 0.8rem;
 	font-weight: 500;
 	text-transform: uppercase;
-} */
+}
 .description {
 	margin: 0 0 0 25px;
 	padding: 2px 0 0 0;
@@ -228,6 +236,11 @@
 .is_job_looking .hint:hover span {
 	visibility: visible;
 	opacity: 1;
+}
+
+.is_job_looking .hint span:hover {
+	visibility: hidden;
+	opacity: 0;
 }
 
 .is_job_looking .hint span::after {

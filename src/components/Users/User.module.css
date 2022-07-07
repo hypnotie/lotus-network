@@ -80,6 +80,7 @@
 	transition: all 0.05s ease 0s;
 	outline: 0 solid;
 	font-size: 0.75rem;
+	width: 100%;
 }
 
 .follow:hover {
@@ -89,3 +90,4 @@
 .follow:active {
 	box-shadow: inset 0 0 4px grey;
 }
+

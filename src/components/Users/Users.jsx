@@ -20,6 +20,7 @@ let Users = (props) => {
 								followingInProgress={props.followingInProgress}
 								follow={props.follow}
 								unfollow={props.unfollow}
+								authorizedUserId={props.authorizedUserId}
 							/>)}
 					</div>
 					<div className={s.pagination_bottom}>

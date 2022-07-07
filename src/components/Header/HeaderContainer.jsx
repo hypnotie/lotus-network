@@ -2,7 +2,7 @@ import React from "react";
 import Header from "./Header";
 import { connect } from "react-redux";
 import { compose } from "redux";
-import { getProfile, getCurrentUserProfile } from "../../redux/profile-reducer";
+import { getCurrentUserProfile } from "../../redux/profile-reducer";
 
 class HeaderContainer extends React.Component {
 	componentDidMount() {
@@ -29,10 +29,11 @@ const mapStateToProps = (state) => {
 		isAuth: state.auth.isAuth,
 		login: state.auth.login,
 		currentUserProfile: state.profilePage.currentUserProfile,
-		authorizedUserId: state.auth.id
+		authorizedUserId: state.auth.id,
+		profile: state.profilePage.profile
 	}
 };
 
 export default compose(
-	connect(mapStateToProps, { getProfile, getCurrentUserProfile })
+	connect(mapStateToProps, { getCurrentUserProfile })
 )(HeaderContainer);

@@ -12,6 +12,21 @@ let User = ({ user, followingInProgress, follow, unfollow, authorizedUserId }) =
 					<img src={user.photos.large != null ? user.photos.large : def_profile} alt={user.name} />
 				</NavLink>
 			</div>
+			{authorizedUserId && user.id !== authorizedUserId &&
+				<div>
+					{user.followed
+						? <button
+							className={s.follow}
+							disabled={followingInProgress.some(id => id === user.id)}
+							onClick={() => { unfollow(user.id); }}>Unfollow</button>
+						: <button
+							className={s.follow}
+							disabled={followingInProgress.some(id => id === user.id)}
+							onClick={() => { follow(user.id); }}>Follow</button>
+					}
+				</div>
+			}
+
 			<div className={s.info}>
 				<ul>
 					<li className={s.name}>
@@ -38,21 +53,6 @@ let User = ({ user, followingInProgress, follow, unfollow, authorizedUserId }) =
 					}
 				</ul>
 			</div>
-			{user.id !== authorizedUserId
-				? <div>
-					{user.followed
-						? <button
-							className={s.follow}
-							disabled={followingInProgress.some(id => id === user.id)}
-							onClick={() => { unfollow(user.id); }}>Unfollow</button>
-						: <button
-							className={s.follow}
-							disabled={followingInProgress.some(id => id === user.id)}
-							onClick={() => { follow(user.id); }}>Follow</button>
-					}
-				</div>
-				: ""
-			}
 		</div>
 	)
 }

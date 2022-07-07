@@ -38,6 +38,7 @@ const ProfileStatusWithHooks = (props) => {
 									autoFocus={true}
 									onBlur={deactivateEditMode}
 									value={status}
+									maxLength={135}
 								/>
 							</div>
 						}

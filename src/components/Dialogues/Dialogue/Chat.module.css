@@ -15,7 +15,6 @@
   width: 100%;
 }
 
-
 .dialogues {
   background-color: #d7ccc8;
   padding: 2px 15px;
@@ -86,13 +85,12 @@
   overflow-y: scroll;
   line-height: 1.25;
   position: relative;
-  bottom: 0;
 }
 
 .messages {
   display: flex;
   flex-direction: column;
-  margin: 8px -18px 2px 20px;
+  margin: 0px -18px 2px 20px;
   width: 100%;
   white-space: pre-line;
 }

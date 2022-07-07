@@ -5,8 +5,13 @@ import { Field, Form, Formik } from "formik";
 import { login } from "../../redux/auth-reducer"
 import s from "./Login.module.css"
 import loginFormSchema from "../FormValidation/LoginFormSchema";
+import { useEffect } from "react";
 
 const LoginForm = ({ onSubmit, captchaUrl }) => {
+	useEffect(() => {
+    document.title = "Lotus Network"
+  }, [])
+
 	return <div className={s.login}>
 		<Formik
 			initialValues={{ email: "", password: "", captcha: "" }}
@@ -78,6 +83,7 @@ const LoginForm = ({ onSubmit, captchaUrl }) => {
 							</div>
 						</div>
 					}
+
 					{values.general ? <div className={s.incorrect}>{values.general[0]}</div> : ""}
 
 					<button
@@ -106,7 +112,7 @@ const Login = ({ login, isAuth, captchaUrl, authorizedUserId }) => {
 		<div className={s.caution}>
 			<div className={s.cautionLabel}>
 				Please use this email and password to login to your test account.<br />
-				Otherwise, you will be immediately logged out.
+				Otherwise, you won't be able to log in.
 			</div>
 			<div className={s.cautionData}>
 				<div>hypno7ie@gmail.com</div>

@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import React from "react";
 import { withAuthRedirect } from "./../../../hoc/withAuthRedirect";
 import { compose } from "redux";
+import withRouterChat from "../../../hoc/withRouterChat";
 
 class ChatContainer extends React.Component {
 	render() {
@@ -19,5 +20,6 @@ const mapStateToProps = (state) => {
 
 export default compose(
 	connect(mapStateToProps, { updateNewMessageTextCreator, sendMessageCreator }),
-	withAuthRedirect
+	withAuthRedirect,
+	withRouterChat
 )(ChatContainer);

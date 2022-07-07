@@ -1,26 +1,29 @@
 .dialogue {
   color: rgb(49, 45, 40);
-  padding: 15px 0;
+  padding: 15px 15px;
+	margin: 0 -15px;
   position: relative;
   display: flex;
-  border: solid rgb(114, 104, 93);
+  border: dashed rgb(114, 104, 93);
   border-width: 0 0 1px 0;
   font-size: 0.9rem;
 }
 
 .dialogue:first-child {
   color: rgb(49, 45, 40);
-  padding: 14px 0 15px 0;
+  padding: 14px 15px 15px;
+	margin: 0 -15px;
   position: relative;
   display: flex;
-  border: solid rgb(114, 104, 93);
+  border: dashed rgb(114, 104, 93);
   border-width: 0 0 1px 0;
   font-size: 0.9rem;
 }
 
 .dialogue:last-child {
   color: rgb(49, 45, 40);
-  padding: 15px 0;
+  padding: 15px;
+	margin: 0 -15px;
   position: relative;
   display: flex;
   border: none;
@@ -40,7 +43,7 @@
 }
 
 .active {
-  padding: 16px 15px 15px 15px;
+  padding: 16px 15px 14px 15px;
   position: relative;
   display: flex;
   border: solid rgb(114, 104, 93);
@@ -48,11 +51,11 @@
   font-size: 0.9rem;
   background-color: rgb(114, 104, 93);
   color: #e9f5f5;
-  margin: -1px -15px 0 -15px;
+  margin: -1px -15px 1px -15px;
 }
 
 .active:first-child {
-  padding: 16px 15px 15px 15px;
+  padding: 16px 15px 14px 15px;
   position: relative;
   display: flex;
   border: solid rgb(114, 104, 93);
@@ -60,6 +63,6 @@
   font-size: 0.9rem;
   background-color: rgb(114, 104, 93);
   color: #e9f5f5;
-  margin: -2px -15px 0 -15px;
+  margin: -2px -15px 1px -15px;
   border-radius: 8px 8px 0 0;
 }

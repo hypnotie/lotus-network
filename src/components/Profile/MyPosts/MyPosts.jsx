@@ -22,14 +22,17 @@ const MyPosts = (props) => {
 			<h3 className={s.header}>
 				My Posts
 			</h3>
-			<div>
+			<div className={s.addPostHint}>
 				<textarea onChange={onPostChange} onKeyDown={onKeyAddPost} placeholder={"What’s on your mind?"} value={props.newPostText}
 					cols="80" rows="3" />
-				<div className={s.add_post}>
-					<button onClick={onClickAddPost}>Add Post</button>
+				<div className={s.hint}>
+					<div className={s.add_post}>
+						<button onClick={onClickAddPost}>Add Post</button>
+						<span>Ctrl + Enter</span>
+					</div>
 				</div>
 			</div>
-			<div className={s.hintContainer}>
+			<div className={s.attentionHint}>
 				<div className={s.hint}>
 					<img src={attention} alt="Attention" />
 					<span>This section contains demo data, the functionality of which has not yet been implemented.</span>

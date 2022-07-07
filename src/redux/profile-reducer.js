@@ -80,8 +80,13 @@ export const setStatus = (status) => ({ type: SET_STATUS, status });
 export const savePhotoSuccess = (photos) => ({ type: SAVE_PHOTO_SUCCESS, photos });
 
 export const getProfile = (userId) => async (dispatch) => {
-	let response = await profileAPI.getProfile(userId);
-	dispatch(setUserProfile(response.data));
+	try {
+		let response = await profileAPI.getProfile(userId);
+		dispatch(setUserProfile(response.data));
+		return true;
+	} catch {
+		return false;
+	}
 };
 
 export const getCurrentUserProfile = (userId) => async (dispatch) => {
@@ -114,6 +119,7 @@ export const saveProfile = (profile, setFieldValue) => async (dispatch, getState
 	const isOk = response.data.resultCode === 0;
 	if (isOk) {
 		dispatch(getProfile(id));
+		dispatch(getCurrentUserProfile(id));
 	} else {
 		setFieldValue("general", response.data.messages);
 	}

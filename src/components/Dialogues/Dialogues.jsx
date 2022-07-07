@@ -1,8 +1,13 @@
 import s from "./Dialogues.module.css";
 import Dialogue from "./Dialogue/Dialogue";
 import attention from "../../img/icons/common/attention-light.svg"
+import { useEffect } from "react";
 
 const Dialogues = (props) => {
+	useEffect(() => {
+    document.title = "Messages"
+  }, [])
+	
 	let state = props.dialoguesPage;
 	let dialoguesElements = state.dialogues.map(d => <Dialogue key={d.id} id={d.id} name={d.name} />);
 

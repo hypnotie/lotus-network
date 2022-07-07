@@ -6,10 +6,11 @@ import { initializeApp } from "./redux/app-reducer";
 import store from "./redux/redux-store";
 import s from "./App.module.css";
 import Login from "./components/Login/Login";
-import Preloader from "./components/common/Preloader/Preloader";
 import NavbarContainer from "./components/Navbar/NavbarContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import ChatContainer from "./components/Dialogues/Dialogue/ChatContainer";
+import Error404 from "./components/Error404/Error404";
+import { logout } from "./redux/auth-reducer";
 
 const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer"));
 const DialoguesContainer = React.lazy(() => import("./components/Dialogues/DialoguesContainer"));
@@ -20,9 +21,15 @@ class App extends Component {
 		this.props.initializeApp();
 	}
 
+	componentDidUpdate() {
+		if (this.props.authorizedUserId !== null && this.props.authorizedUserId !== 23279) {
+			this.props.logout();
+		}
+	}
+
 	render() {
 		if (!this.props.initialized) {
-			return <Preloader />
+			return <div />
 		}
 
 		return (
@@ -35,21 +42,31 @@ class App extends Component {
 						<Suspense fallback={""}>
 							<Routes>
 								<Route path="/"
-									element={<UsersContainer key={"mainOne"} />} />
+									element={<Login key={"login1stRedirect"} />} />
+
 								<Route path="/lotus-network"
-									element={<UsersContainer key={"mainTwo"} />} />
+									element={<Login key={"login2ndRedirect"} />} />
+
 								<Route path={`/users/` + this.props.authorizedUserId}
 									element={<ProfileContainer key={"me"} />} />
+
 								<Route path="/users/*"
 									element={<ProfileContainer key={"user"} />} />
+
 								<Route path="/messages"
 									element={<DialoguesContainer key={"dialogues"} />} />
+
 								<Route path="/messages/*"
 									element={<ChatContainer key={"chat"} />} />
+
 								<Route path="/users"
 									element={<UsersContainer key={"users"} />} />
+
 								<Route path="/login"
 									element={<Login key={"login"} />} />
+
+								<Route path="*"
+									element={<Error404 key={"error404"} />} />
 							</Routes>
 						</Suspense>
 					</div>
@@ -65,7 +82,7 @@ const mapStateToProps = (state) => ({
 });
 
 let AppContainer = compose(
-	connect(mapStateToProps, { initializeApp }))(App);
+	connect(mapStateToProps, { initializeApp, logout }))(App);
 
 const LotusNetworkApp = () => {
 	return <BrowserRouter>

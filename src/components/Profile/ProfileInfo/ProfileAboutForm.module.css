@@ -107,7 +107,7 @@
 }
 
 .editInfoButton .hint span:hover {
-	visibility: hidden;
+	display: none;
 	opacity: 0;
 }
 

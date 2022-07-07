@@ -9,8 +9,12 @@ const instance = axios.create({
 });
 
 export const profileAPI = {
-	getProfile(userId) { return instance.get(`profile/${userId}`); },
-	getStatus(userId) { return instance.get(`profile/status/${userId}`); },
+	getProfile(userId) {
+		return instance.get(`profile/${userId}`);
+	},
+	getStatus(userId) {
+		return instance.get(`profile/status/${userId}`);
+	},
 	updateStatus(status) { return instance.put(`profile/status`, { status }); },
 	savePhoto(photoFile) {
 		const formData = new FormData();
@@ -24,6 +28,7 @@ export const profileAPI = {
 
 export const usersAPI = {
 	getUsers(currentPage = 1, pageSize = 50) { return instance.get(`users?page=${currentPage}&count=${pageSize}`); },
+	checkFollow(userId) { return instance.get(`follow/${userId}`); },
 	followUser(userId) { return instance.post(`follow/${userId}`); },
 	unfollowUser(userId) { return instance.delete(`follow/${userId}`); }
 };

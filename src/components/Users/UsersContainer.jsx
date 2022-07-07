@@ -12,6 +12,11 @@ class UsersContainer extends React.Component {
 		const { getUsers, currentPage, pageSize } = this.props;
 		getUsers(currentPage, pageSize);
 	}
+
+	componentDidUpdate() {
+		document.title = "Users";
+	}
+	
 	onPageChanged = (pageNumber) => {
 		const { getUsers, pageSize } = this.props;
 		getUsers(pageNumber, pageSize);

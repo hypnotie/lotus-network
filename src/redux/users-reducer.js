@@ -8,6 +8,7 @@ const SET_CURRENT_PAGE = "lotus-network/users/SET_CURRENT_PAGE";
 const SET_TOTAL_ITEMS_COUNT = "lotus-network/users/SET_TOTAL_ITEMS_COUNT";
 const TOGGLE_IS_FETCHING = "lotus-network/users/TOGGLE_IS_FETCHING";
 const TOGGLE_IS_FOLLOWING_PROGRESS = "lotus-network/users/TOGGLE_IS_FOLLOWING_PROGRESS";
+const IS_FOLLOWED = "lotus-network/users/IS_FOLLOWED";
 
 let initialState = {
 	users: [],
@@ -15,7 +16,8 @@ let initialState = {
 	totalItemsCount: 0,
 	currentPage: 1,
 	isFetching: true,
-	followingInProgress: []
+	followingInProgress: [],
+	isFollowed: false
 };
 
 const usersReducer = (state = initialState, action) => {
@@ -23,12 +25,14 @@ const usersReducer = (state = initialState, action) => {
 		case FOLLOW:
 			return {
 				...state,
-				users: updateObjectInArray(state.users, action.userId, "id", { followed: true })
+				users: updateObjectInArray(state.users, action.userId, "id", { followed: true }),
+				isFollowed: true
 			};
 		case UNFOLLOW:
 			return {
 				...state,
-				users: updateObjectInArray(state.users, action.userId, "id", { followed: false })
+				users: updateObjectInArray(state.users, action.userId, "id", { followed: false }),
+				isFollowed: false
 			};
 		case SET_USERS:
 			return {
@@ -54,6 +58,11 @@ const usersReducer = (state = initialState, action) => {
 					? [...state.followingInProgress, action.userId]
 					: state.followingInProgress.filter(id => id !== action.userId)
 			}
+		case IS_FOLLOWED:
+			return {
+				...state,
+				isFollowed: action.isFollowed
+			}
 		default:
 			return state;
 	}
@@ -68,6 +77,10 @@ export const toggleIsFetching = (isFetching) => ({ type: TOGGLE_IS_FETCHING, isF
 export const toggleFollowingProgress = (isFetching, userId) => ({
 	type: TOGGLE_IS_FOLLOWING_PROGRESS, isFetching, userId
 });
+export const isFollowed = (isFollowed) => ({
+	type: IS_FOLLOWED,
+	isFollowed
+});
 
 export const requestUsers = (page, pageSize) => async (dispatch) => {
 	dispatch(toggleIsFetching(true));
@@ -76,6 +89,15 @@ export const requestUsers = (page, pageSize) => async (dispatch) => {
 	dispatch(toggleIsFetching(false));
 	dispatch(setUsers(response.data.items));
 	dispatch(setTotalItemsCount(response.data.totalCount));
+};
+
+export const checkFollow = (userId) => async (dispatch) => {
+	let response = await usersAPI.checkFollow(userId);
+	if (response.data === true) {
+		dispatch(isFollowed(true));
+	} else {
+		dispatch(isFollowed(false));
+	}
 };
 
 const followUnfollowFlow = async (dispatch, userId, apiMethod, actionCreator) => {
